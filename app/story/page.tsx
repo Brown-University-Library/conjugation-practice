@@ -6,9 +6,9 @@ import { Frame, frameList } from "../components/Frame";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
+const COMPLETED_STORIES_KEY = "completedStories";
+
 function StoryStuff() {
-  /* States for frame (that will be the initial question or the correct/wrong answer screen), 
-  and input value for textbox */
   const searchParams = useSearchParams();
   const initialFrame = parseInt(searchParams.get("frame") ?? "0");
   const [frame, setFrame] = useState(initialFrame);
@@ -17,50 +17,53 @@ function StoryStuff() {
   const [score, setScore] = useState(0);
   const [attemptsLeft, setAttempts] = useState(3);
 
-  // Check if we're client-side
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  /* 
-    Function for handling button click. Behavior depends on whether you're answering
-    the initial question (frame 0/3/6, etc.) or seeing the result of the answer
-  */
-  const handleClick = () => {
-    // If it's the result screen, make the button bring you to the initial question (wrong)
-    // Or make the button send you to the next question (right)
+  // Mark this story as complete once the player reaches its final frame
+  useEffect(() => {
+    if (frame % 15 === 14) {
+      const storyId = frame - 14;
+      const raw = window.localStorage.getItem(COMPLETED_STORIES_KEY);
+      let completed: number[] = [];
+      if (raw) {
+        try {
+          completed = JSON.parse(raw);
+        } catch {
+          completed = [];
+        }
+      }
+      if (!completed.includes(storyId)) {
+        completed.push(storyId);
+        window.localStorage.setItem(COMPLETED_STORIES_KEY, JSON.stringify(completed));
+      }
+    }
+  }, [frame]);
 
+  const handleClick = () => {
     if (isResultScreen) {
       setIsResultScreen(false);
-
-      // Sends you back to the initial question if you got the question wrong
       if (frameList[frame].type == "wrong") {
         setFrame(frame - 1);
-      }
-      // Got the question correct
-      else {
+      } else {
         setFrame(frame + 1);
       }
       return;
     }
 
-    // Otherwise, the button acts as a submit button and evaluates the user input
-
-    // You got the question correct (send them to the right answer frame)
     if (inputValue == frameList[frame].hiragana_answer || inputValue == frameList[frame].kanji_answer) {
       setFrame(frame + 2);
       setScore(score + calculateScore());
       setAttempts(3);
-    }
-    // Incorrect answer (send them to the wrong answer frame)
-    else {
+    } else {
       setFrame(frame + 1);
       setAttempts(Math.max(attemptsLeft - 1, 0));
     }
 
-    setIsResultScreen(true); // Go to result screen upon submission
+    setIsResultScreen(true);
     setInputValue("");
   };
 
@@ -103,15 +106,6 @@ function StoryStuff() {
     }
   }
 
-  /* Structure of the page:
-  Container
-    Stack
-      Image
-      Text
-      Group
-        Input
-        Button
-  */
   return (
     <Container size="sm" style={{ textAlign: "center" }}>
       <Link href={{ pathname: "/" }} style={{ textDecoration: "none" }}>

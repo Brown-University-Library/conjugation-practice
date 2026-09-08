@@ -1,64 +1,113 @@
 "use client";
 
-import {
-  Button,
-  Card,
-  Group,
-  Image,
-  Text,
-  Badge,
-  Center,
-  Container,
-} from "@mantine/core";
+import { Button, Card, Group, Image, Text, Badge, Center, Container, Modal, Stack, TextInput } from "@mantine/core";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const PLAYER_NAME_KEY = "playerName";
+const COMPLETED_STORIES_KEY = "completedStories";
+
+const stories = [
+  { frame: 0, title: "Bobo's Day at School", image: "frames/frame-1-5.jpg" },
+  { frame: 15, title: "Bobo Plays a Video Game", image: "frames/frame-2-3.jpg" },
+  { frame: 30, title: "Bobo Does a Relay Race", image: "frames/frame-3-10.jpg" },
+];
 
 export default function HomePage() {
+  const [playerName, setPlayerName] = useState("");
+  const [nameDraft, setNameDraft] = useState("");
+  const [nameModalOpen, setNameModalOpen] = useState(false);
+  const [completedStories, setCompletedStories] = useState<number[]>([]);
+
+  useEffect(() => {
+    const savedName = window.localStorage.getItem(PLAYER_NAME_KEY);
+    if (savedName) {
+      setPlayerName(savedName);
+    } else {
+      setNameModalOpen(true);
+    }
+
+    const rawCompleted = window.localStorage.getItem(COMPLETED_STORIES_KEY);
+    if (rawCompleted) {
+      try {
+        setCompletedStories(JSON.parse(rawCompleted));
+      } catch {
+        setCompletedStories([]);
+      }
+    }
+  }, []);
+
+  const saveName = (name: string) => {
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    window.localStorage.setItem(PLAYER_NAME_KEY, trimmed);
+    setPlayerName(trimmed);
+    setNameModalOpen(false);
+  };
+
   return (
-    <Center>
-      <Container size="lg">
-        <Link
-          href={{ pathname: "/story", query: { frame: 0 } }}
-          style={{ textDecoration: "none", width: "100%" }}
-        >
-          <Card shadow="sm" padding="xl">
-            <Card.Section>
-              <Image src="frames/frame-1-5.jpg" h={160} alt="No way!" />
-            </Card.Section>
+    <>
+      <Modal
+        opened={nameModalOpen}
+        onClose={() => {}}
+        withCloseButton={false}
+        closeOnClickOutside={false}
+        closeOnEscape={false}
+        title="Welcome!"
+      >
+        <Stack>
+          <Text>What's your name?</Text>
+          <TextInput
+            placeholder="Enter your name"
+            value={nameDraft}
+            onChange={(e) => setNameDraft(e.currentTarget.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") saveName(nameDraft);
+            }}
+            data-autofocus
+          />
+          <Button onClick={() => saveName(nameDraft)} disabled={!nameDraft.trim()}>
+            Save
+          </Button>
+        </Stack>
+      </Modal>
 
-            <Text fw={500} size="lg" mt="md" td="none">
-              Bobo&apos;s Day at School
+      <Center>
+        <Container size="lg">
+          {playerName && (
+            <Text ta="center" size="lg" mb="md">
+              Welcome back, {playerName}!
             </Text>
-          </Card>
-        </Link>
-        <Link
-          href={{ pathname: "/story", query: { frame: 15 } }}
-          style={{ textDecoration: "none" }}
-        >
-          <Card shadow="sm" padding="xl">
-            <Card.Section>
-              <Image src="frames/frame-2-3.jpg" h={160} alt="No way!" />
-            </Card.Section>
+          )}
+          {stories.map((story) => {
+            const isComplete = completedStories.includes(story.frame);
+            return (
+              <Link
+                key={story.frame}
+                href={{ pathname: "/story", query: { frame: story.frame } }}
+                style={{ textDecoration: "none", width: "100%" }}
+              >
+                <Card shadow="sm" padding="xl" mb="md">
+                  <Card.Section style={{ position: "relative" }}>
+                    <Image src={story.image} h={160} alt={story.title} />
+                    {isComplete && (
+                      <Badge color="green" size="lg" style={{ position: "absolute", top: 10, right: 10 }}>
+                        ✓
+                      </Badge>
+                    )}
+                  </Card.Section>
 
-            <Text fw={500} size="lg" mt="md">
-              Bobo Plays a Video Game
-            </Text>
-          </Card>
-        </Link>
-        <Link
-          href={{ pathname: "/story", query: { frame: 30 } }}
-          style={{ textDecoration: "none" }}
-        >
-          <Card shadow="sm" padding="xl">
-            <Card.Section>
-              <Image src="frames/frame-3-10.jpg" h={160} alt="No way!" />
-            </Card.Section>
-
-            <Text fw={500} size="lg" mt="md">
-              Bobo Does a Relay Race
-            </Text>
-          </Card>
-        </Link>
-      </Container>
-    </Center>
+                  <Group justify="space-between" mt="md">
+                    <Text fw={500} size="lg">
+                      {story.title}
+                    </Text>
+                  </Group>
+                </Card>
+              </Link>
+            );
+          })}
+        </Container>
+      </Center>
+    </>
   );
 }
