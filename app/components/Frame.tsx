@@ -15,7 +15,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-0.jpg",
     dialogue:
-      "It's 7 AM, time for Bobo to wake up! They fell asleep holding their phone. Help drop the phone to wake up Bobo! You should conjugate the verb in the present tense polite form!",
+      "It's 7 AM, time for Bobo to wake up! They fell asleep holding their phone. Help drop the phone to wake up Bobo! You should conjugate the verb in the present tense polite (～ます) form!",
     hiragana_answer: "おとします",
     kanji_answer: "落とします",
     prompt: "スマホを",
@@ -39,7 +39,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-3.jpg",
     dialogue:
-      "It's time to leave, but Bobo forgot how to open their door. They always get so confused with how it works! Help Bobo open the door by conjugating a verb in present polite form.",
+      "It's time to leave, but Bobo forgot how to open their door. They always get so confused with how it works! Help Bobo open the door by conjugating a verb in present polite (～ます) form.",
     hiragana_answer: "あけます",
     kanji_answer: "開けます",
     prompt: "ドアを",
@@ -63,7 +63,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-6.jpg",
     dialogue:
-      'Bobo is talking to their friend at school about how their phone fell on them this morning. Bobo is studying abroad, so they need some help remembering how to say "the phone fell" Conjugate the verb in past tense polite form!',
+      'Bobo is talking to their friend at school about how their phone fell on them this morning. Bobo is studying abroad, so they need some help remembering how to say "the phone fell" Conjugate the verb in past tense polite (～ました) form!',
     hiragana_answer: "おちました",
     kanji_answer: "落ちました",
     prompt: "スマホが",
@@ -85,7 +85,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-9.jpg",
     dialogue:
-      'Bobo has to take a test, and one of questions happens to be your speciality -- transtive and intransitive verbs! Help Bobo write, "the water boils" in present polite form.',
+      'Bobo has to take a test, and one of questions happens to be your speciality -- transtive and intransitive verbs! Help Bobo write, "the water boils" in present polite (～ます) form.',
     hiragana_answer: "わきます",
     kanji_answer: "わきます",
     prompt: "お湯が",
@@ -107,7 +107,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-12.jpg",
     dialogue:
-      "Bobo has had a long day. They want to have some tea before heading to bed. Help them boil some water.",
+      "Bobo has had a long day. They want to have some tea before heading to bed. Help them boil some water, in the present polite (～ます) form.",
     hiragana_answer: "わかします",
     kanji_answer: "沸かします",
     prompt: "お湯を",
@@ -131,7 +131,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-1-3.jpg",
     dialogue:
-      "Bobo wants to play a new video game they bought. Help Bobo turn on their computer.",
+      "Bobo wants to play a new video game they bought. Help Bobo turn on their computer in the present polite (～ます) form.",
     hiragana_answer: "つけます",
     kanji_answer: "点けます",
     prompt: "コンピューターを",
@@ -153,7 +153,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-2-3.jpg",
     dialogue:
-      "Bobo is now in the game. They want to go out and save people to start their journey as a hero. Help Bobo save people",
+      "Bobo is now in the game. They want to go out and save people to start their journey as a hero. Help Bobo save people in the present polite (～ます) form!",
     hiragana_answer: "たすけます",
     kanji_answer: "助けます",
     prompt: "ひとを",
@@ -177,7 +177,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-2-6.jpg",
     dialogue:
-      "Unlike other protagonists, Bobo isn't able to do solo leveling. The game requires you to use your knowledge of transitive and intransitive verbs to say, 'the level rises' before you can fully level up (a very educational game)",
+      "Unlike other protagonists, Bobo isn't able to do solo leveling. The game requires you to use your knowledge of transitive and intransitive verbs to say, 'the level rises (～ます form)' before you can fully level up (a very educational game)",
     hiragana_answer: "あがります",
     kanji_answer: "上がります",
     prompt: "レベルが",
@@ -199,7 +199,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-2-9.jpg",
     dialogue:
-      "Bobo is up against the final boss, the Demon King. They're too scared to fight him, but the villagers that Bobo saved earlier are cheering them on. Help Bobo be able to hear their voices.",
+      "Bobo is up against the final boss, the Demon King. They're too scared to fight him, but the villagers that Bobo saved earlier are cheering them on. Help Bobo be able to hear their voices, in the present polite (～ます) form!",
     hiragana_answer: "きこえます",
     kanji_answer: "聞こえます",
     prompt: "こえが",
@@ -223,7 +223,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-2-12.jpg",
     dialogue:
-      "It looks like Bobo fell asleep as they were playing their game. But, the lights are still on, which make wake up Bobo. Help turn off the lights",
+      "It looks like Bobo fell asleep as they were playing their game. But, the lights are still on, which make wake up Bobo. Help turn off the lights in present polite (～ます) form.",
     hiragana_answer: "けします",
     kanji_answer: "消します",
     prompt: "電気を",
@@ -248,7 +248,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-3-0.jpg",
     dialogue:
-      "It's sports day at Bobo's school. Bobo's friend wants them to enter a relay race but Bobo doesn't want to. Help Bobo's friend change their mind",
+      "It's sports day at Bobo's school. Bobo's friend wants them to enter a relay race but Bobo doesn't want to. Help Bobo's friend change their mind, in the present polite (～ます) form!",
     hiragana_answer: "かえます",
     kanji_answer: "変えます",
     prompt: "考えを",
@@ -272,7 +272,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-3-3.jpg",
     dialogue:
-      "Bobo won't be able to win this race without a training arc. They decide to do some training with a tire but they're struggling. Help them move the tire.",
+      "Bobo won't be able to win this race without a training arc. They decide to do some training with a tire but they're struggling. Help them move the tire in present polite (～ます) form.",
     hiragana_answer: "うごかします",
     kanji_answer: "動かします",
     prompt: "タイヤを",
@@ -296,7 +296,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-3-6.jpg",
     dialogue:
-      "After the training arc, Bobo and the other racers get ready at their starting positions. Bobo will be the team's anchor. Help begin the race",
+      "After the training arc, Bobo and the other racers get ready at their starting positions. Bobo will be the team's anchor. Help begin the race, in present polite (～ます) form!",
     hiragana_answer: "はじまります",
     kanji_answer: "始まります",
     prompt: "レースが",
@@ -318,7 +318,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-3-9.jpg",
     dialogue:
-      "After a few minutes, it's Bobo's turn to run. However, Bobo is just behind second place. Help them move faster to win.",
+      "After a few minutes, it's Bobo's turn to run. However, Bobo is just behind second place. Help them move faster in present polite (～ます) form to win.",
     hiragana_answer: "うごきます",
     kanji_answer: "動きます",
     prompt: "ぼぼが早く",
@@ -341,7 +341,7 @@ export const frameList: Frame[] = [
   {
     imageURL: "frames/frame-3-12.jpg",
     dialogue:
-      "Bobo is exhausted after the race. Gather Bobo's friends to help them celebrate!",
+      "Bobo is exhausted after the race. Gather Bobo's friends in present polite (～ます) form to help them celebrate!",
     hiragana_answer: "あつめます",
     kanji_answer: "集めます",
     prompt: "友達を",
