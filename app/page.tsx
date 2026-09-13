@@ -137,6 +137,43 @@ export default function HomePage() {
           })}
         </Container>
       </Center>
+
+      {/* How to Play */}
+      <Center>
+        <Stack maw={600} gap="xs" p="md">
+          <Title order={3} ta="center">
+            How to Play
+          </Title>
+          <Text>
+            Help Bobo get through various situations by conjugating intransitive
+            and transitive verbs. <b>Click</b> on one of the stories to start.
+          </Text>
+          <Text>
+            During the stories, you will <b>type</b> the conjugation into the
+            textbox in either hiragana or kanji and <b>click</b> the{" "}
+            <b>Submit</b> button.
+          </Text>
+          <Text>
+            If you conjugate the verb correctly you will see a screen displaying
+            a positive outcome. After three failed attempts, you will receive
+            the answer.{" "}
+            <i>
+              You can only progress through the story by typing in the correct
+              conjugation.
+            </i>
+          </Text>
+          <Text>
+            <b>Clicking</b> the <b>Home</b> button will bring you back to all of
+            the stories, but you will have to redo the story you were working
+            on.
+          </Text>
+          <Text>
+            Finally, once you complete a story, you will see a checkmark appear
+            on the corresponding story on the home page. がんばって！
+          </Text>
+        </Stack>
+      </Center>
+
       {/* Credits */}
       <Center>
         <Stack maw={600} gap="xs" p="md">
