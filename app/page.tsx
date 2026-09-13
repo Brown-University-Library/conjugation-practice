@@ -137,37 +137,37 @@ export default function HomePage() {
           })}
         </Container>
       </Center>
+      {/* Credits */}
       <Center>
-        <Container>
-          <Title ta="center" size="xl" mb="md">
+        <Stack maw={600} gap="xs" p="md">
+          <Title order={3} ta="center">
             Credits
           </Title>
           <Text>
-            <Text fw="bold" span>
-              Project Director & Japanese Language Content: {""}
-            </Text>
-            Atsuko Suga Borgmann
+            <b>Project Director & Japanese Language Content</b>: Atsuko Suga
+            Borgmann
           </Text>
           <Text>
-            <Text fw="bold" span>
-              Game Design & Programming: {""}
-            </Text>
-            Angel Arrazola and Ross Williams
+            <b>Game Design & Programming</b>: Angel Arrazola and Ross Williams
           </Text>
-          <Text fs="italic">
-            This project was developed at Brown University with support from the
-            UTRA.
+          <Text>
+            <i>
+              This project was developed at Brown University with support from
+              the UTRA.
+            </i>
           </Text>
-          <Text fs="italic">
-            Images for "Bobo" obtained from AC-Illustration author{" "}
-            <Anchor
-              href="https://www.ac-illust.com/main/profile.php?id=aGKSuoSZ&area=1"
-              target="_blank"
-            >
-              ちょこぴよ
-            </Anchor>
+          <Text>
+            <i>
+              Art for "Bobo" sourced from AC Illustration author{" "}
+              <a
+                href="https://www.ac-illust.com/main/profile.php?id=aGKSuoSZ&area=1"
+                target="_blank"
+              >
+                ちょこぴよ
+              </a>
+            </i>
           </Text>
-        </Container>
+        </Stack>
       </Center>
     </>
   );
