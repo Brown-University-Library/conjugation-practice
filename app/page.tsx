@@ -1,6 +1,20 @@
 "use client";
 
-import { Button, Card, Group, Image, Text, Badge, Center, Container, Modal, Stack, TextInput } from "@mantine/core";
+import {
+  Button,
+  Card,
+  Group,
+  Image,
+  Text,
+  Badge,
+  Center,
+  Container,
+  Modal,
+  Stack,
+  TextInput,
+  Title,
+  Anchor,
+} from "@mantine/core";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -9,8 +23,16 @@ const COMPLETED_STORIES_KEY = "completedStories";
 
 const stories = [
   { frame: 0, title: "Bobo's Day at School", image: "frames/frame-1-5.jpg" },
-  { frame: 15, title: "Bobo Plays a Video Game", image: "frames/frame-2-3.jpg" },
-  { frame: 30, title: "Bobo Does a Relay Race", image: "frames/frame-3-10.jpg" },
+  {
+    frame: 15,
+    title: "Bobo Plays a Video Game",
+    image: "frames/frame-2-3.jpg",
+  },
+  {
+    frame: 30,
+    title: "Bobo Does a Relay Race",
+    image: "frames/frame-3-10.jpg",
+  },
 ];
 
 export default function HomePage() {
@@ -66,7 +88,10 @@ export default function HomePage() {
             }}
             data-autofocus
           />
-          <Button onClick={() => saveName(nameDraft)} disabled={!nameDraft.trim()}>
+          <Button
+            onClick={() => saveName(nameDraft)}
+            disabled={!nameDraft.trim()}
+          >
             Save
           </Button>
         </Stack>
@@ -91,7 +116,11 @@ export default function HomePage() {
                   <Card.Section style={{ position: "relative" }}>
                     <Image src={story.image} h={160} alt={story.title} />
                     {isComplete && (
-                      <Badge color="green" size="lg" style={{ position: "absolute", top: 10, right: 10 }}>
+                      <Badge
+                        color="green"
+                        size="lg"
+                        style={{ position: "absolute", top: 10, right: 10 }}
+                      >
                         ✓
                       </Badge>
                     )}
@@ -106,6 +135,38 @@ export default function HomePage() {
               </Link>
             );
           })}
+        </Container>
+      </Center>
+      <Center>
+        <Container>
+          <Title ta="center" size="xl" mb="md">
+            Credits
+          </Title>
+          <Text>
+            <Text fw="bold" span>
+              Project Director & Japanese Language Content: {""}
+            </Text>
+            Atsuko Suga Borgmann
+          </Text>
+          <Text>
+            <Text fw="bold" span>
+              Game Design & Programming: {""}
+            </Text>
+            Angel Arrazola and Ross Williams
+          </Text>
+          <Text fs="italic">
+            This project was developed at Brown University with support from the
+            UTRA.
+          </Text>
+          <Text fs="italic">
+            Images for "Bobo" obtained from AC-Illustration author{" "}
+            <Anchor
+              href="https://www.ac-illust.com/main/profile.php?id=aGKSuoSZ&area=1"
+              target="_blank"
+            >
+              ちょこぴよ
+            </Anchor>
+          </Text>
         </Container>
       </Center>
     </>
