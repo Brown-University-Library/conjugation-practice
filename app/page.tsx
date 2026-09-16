@@ -195,7 +195,7 @@ export default function HomePage() {
           </Text>
           <Text>
             <i>
-              Art for "Bobo" sourced from AC Illustration author{" "}
+              {"Art for \"Bobo\" sourced from AC Illustration author"}
               <a
                 href="https://www.ac-illust.com/main/profile.php?id=aGKSuoSZ&area=1"
                 target="_blank"
