@@ -78,7 +78,7 @@ export default function HomePage() {
         title="Welcome!"
       >
         <Stack>
-          <Text>What's your name?</Text>
+          <Text>{"What's your name?"}</Text>
           <TextInput
             placeholder="Enter your name"
             value={nameDraft}
